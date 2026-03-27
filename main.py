@@ -1,4 +1,4 @@
-def is_balanced(input, is_write_to_output):
+def is_balanced(input):
     output = open("output.txt", "a")
 
     finals = "q2"
@@ -64,8 +64,7 @@ def is_balanced(input, is_write_to_output):
         ("q1", "x", "}"): ["q1", "}"],
     }
 
-    if is_write_to_output:
-        output.write(f"Processing {input}\n")
+    output.write(f"Processing {input}\n")
 
     input += "E"
 
@@ -73,39 +72,32 @@ def is_balanced(input, is_write_to_output):
     curr_state = "q0"
     i = 0
     while True:
-        if is_write_to_output:
-            if i == len(input) - 1:
-                output.write(
-                    f"ID: ({curr_state}, {input[i:]}, {''.join(list(reversed(stack)))})\n"
-                )
-            else:
-                output.write(
-                    f"ID: ({curr_state}, {input[i:-1]}, {''.join(list(reversed(stack)))})\n"
-                )
+        if i == len(input) - 1:
+            output.write(
+                f"ID: ({curr_state}, {input[i:]}, {''.join(list(reversed(stack)))})\n"
+            )
+        else:
+            output.write(
+                f"ID: ({curr_state}, {input[i:-1]}, {''.join(list(reversed(stack)))})\n"
+            )
         symbol = input[i]
         top = stack.pop()
 
         key = (curr_state, symbol, top)
         if curr_state == finals:
-            if is_write_to_output:
-                output.write("q2 is a final state.\n")
-                output.write(f"{input[:-1]} is valid and has balanced brackets.\n\n")
+            output.write("q2 is a final state.\n")
+            output.write(f"{input[:-1]} is valid and has balanced brackets.\n\n")
             return True
         elif key in transitions:
             transition = transitions[key]
             curr_state = transition[0]
             stack.extend(transition[1:])
         else:
-            if is_write_to_output:
-                if symbol == "E":
-                    output.write(
-                        f"Invalid string. {curr_state} is not a final state.\n\n"
-                    )
-                else:
-                    output.write(f"Invalid string. Failed at position {i+1}.\n")
-                    output.write(
-                        f"Remaining unprocessed input string: {input[i:-1]}\n\n"
-                    )
+            if symbol == "E":
+                output.write(f"Invalid string. {curr_state} is not a final state.\n\n")
+            else:
+                output.write(f"Invalid string. Failed at position {i+1}.\n")
+                output.write(f"Remaining unprocessed input string: {input[i:-1]}\n\n")
             return False
 
         i += 1
@@ -149,23 +141,22 @@ def evaluate(input):
 
 def main1():
     input = open("input.txt")
+    answers = []
     for i in input:
-        is_balanced(i.strip(), True)
+        answers.append([i.strip(), is_balanced(i.strip())])
+    return answers
 
 
-def main2():
+def main2(input):
     output = open("output.txt", "a")
-    input = open("input.txt")
     for i in input:
-        if is_balanced(i.strip(), False):
-            output.write(
-                f"{i.strip()} - Resulting number of x's: {evaluate(i.strip())}\n"
-            )
+        if i[1]:
+            output.write(f"{i[0]} - Resulting number of x's: {evaluate(i[0])}\n")
         else:
-            output.write(f"{i.strip()} - Invalid string.\n")
+            output.write(f"{i[0]} - Invalid string.\n")
 
 
 if __name__ == "__main__":
     open("output.txt", "w").close()
-    main1()
-    main2()
+    ans = main1()
+    main2(ans)
