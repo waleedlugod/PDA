@@ -72,3 +72,9 @@ ID: (q2, E, Z)
 q2 is a final state.
 !<x{[()]}x>! is valid and has balanced brackets.
 
+!xx[x({xx})[xxx]x]<xxx>x! - Resulting number of x's: 9
+![<]>! - Invalid string.
+![] - Invalid string.
+!<a{[()]}a>! - Invalid string.
+([]){} - Invalid string.
+!<x{[()]}x>! - Resulting number of x's: 6

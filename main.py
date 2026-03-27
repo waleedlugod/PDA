@@ -99,7 +99,6 @@ def evaluate(input):
         else:
             i += 1
         input = new_string
-        print(input)
     return len(input) - 2
 
 
@@ -110,10 +109,15 @@ def main1():
 
 
 def main2():
+    output = open("output.txt", "a")
     input = open("input.txt")
     for i in input:
         if is_balanced(i.strip(), False):
-            evaluate(i.strip())
+            output.write(
+                f"{i.strip()} - Resulting number of x's: {evaluate(i.strip())}\n"
+            )
+        else:
+            output.write(f"{i.strip()} - Invalid string.\n")
 
 
 if __name__ == "__main__":
