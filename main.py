@@ -73,7 +73,7 @@ def is_balanced(input, is_write_to_output):
     stack = ["z"]
     curr_state = "q0"
     i = 0
-    while true:
+    while True:
         if is_write_to_output:
             if i == len(input) - 1:
                 output.write(
@@ -91,7 +91,7 @@ def is_balanced(input, is_write_to_output):
             if is_write_to_output:
                 output.write("q2 is a final state.\n")
                 output.write(f"{input[:-1]} is valid and has balanced brackets.\n\n")
-            return true
+            return True
         elif key in transitions:
             transition = transitions[key]
             curr_state = transition[0]
@@ -107,7 +107,7 @@ def is_balanced(input, is_write_to_output):
                     output.write(
                         f"remaining unprocessed input string: {input[i:-1]}\n\n"
                     )
-            return false
+            return False
 
         i += 1
 
@@ -115,7 +115,7 @@ def is_balanced(input, is_write_to_output):
 def evaluate(input):
     stack = []
     i = 0
-    while true:
+    while True:
         new_string = input
         c = input[i]
         if c == "!" and i > 0:
@@ -151,14 +151,14 @@ def evaluate(input):
 def main1():
     input = open("input.txt")
     for i in input:
-        is_balanced(i.strip(), true)
+        is_balanced(i.strip(), True)
 
 
 def main2():
     output = open("output.txt", "a")
     input = open("input.txt")
     for i in input:
-        if is_balanced(i.strip(), false):
+        if is_balanced(i.strip(), False):
             output.write(
                 f"{i.strip()} - resulting number of x's: {evaluate(i.strip())}\n"
             )
