@@ -1,80 +1,80 @@
-processing !xx[x({xx})[xxx]x]<xxx>x!
-id: (q0, !xx[x({xx})[xxx]x]<xxx>x!, z)
-id: (q1, xx[x({xx})[xxx]x]<xxx>x!, !z)
-id: (q1, x[x({xx})[xxx]x]<xxx>x!, !z)
-id: (q1, [x({xx})[xxx]x]<xxx>x!, !z)
-id: (q1, x({xx})[xxx]x]<xxx>x!, [!z)
-id: (q1, ({xx})[xxx]x]<xxx>x!, [!z)
-id: (q1, {xx})[xxx]x]<xxx>x!, ([!z)
-id: (q1, xx})[xxx]x]<xxx>x!, {([!z)
-id: (q1, x})[xxx]x]<xxx>x!, {([!z)
-id: (q1, })[xxx]x]<xxx>x!, {([!z)
-id: (q1, )[xxx]x]<xxx>x!, ([!z)
-id: (q1, [xxx]x]<xxx>x!, [!z)
-id: (q1, xxx]x]<xxx>x!, [[!z)
-id: (q1, xx]x]<xxx>x!, [[!z)
-id: (q1, x]x]<xxx>x!, [[!z)
-id: (q1, ]x]<xxx>x!, [[!z)
-id: (q1, x]<xxx>x!, [!z)
-id: (q1, ]<xxx>x!, [!z)
-id: (q1, <xxx>x!, !z)
-id: (q1, xxx>x!, <!z)
-id: (q1, xx>x!, <!z)
-id: (q1, x>x!, <!z)
-id: (q1, >x!, <!z)
-id: (q1, x!, !z)
-id: (q1, !, !z)
-id: (q2, e, z)
+Processing !xx[x({xx})[xxx]x]<xxx>x!
+ID: (q0, !xx[x({xx})[xxx]x]<xxx>x!, Z)
+ID: (q1, xx[x({xx})[xxx]x]<xxx>x!, !Z)
+ID: (q1, x[x({xx})[xxx]x]<xxx>x!, !Z)
+ID: (q1, [x({xx})[xxx]x]<xxx>x!, !Z)
+ID: (q1, x({xx})[xxx]x]<xxx>x!, [!Z)
+ID: (q1, ({xx})[xxx]x]<xxx>x!, [!Z)
+ID: (q1, {xx})[xxx]x]<xxx>x!, ([!Z)
+ID: (q1, xx})[xxx]x]<xxx>x!, {([!Z)
+ID: (q1, x})[xxx]x]<xxx>x!, {([!Z)
+ID: (q1, })[xxx]x]<xxx>x!, {([!Z)
+ID: (q1, )[xxx]x]<xxx>x!, ([!Z)
+ID: (q1, [xxx]x]<xxx>x!, [!Z)
+ID: (q1, xxx]x]<xxx>x!, [[!Z)
+ID: (q1, xx]x]<xxx>x!, [[!Z)
+ID: (q1, x]x]<xxx>x!, [[!Z)
+ID: (q1, ]x]<xxx>x!, [[!Z)
+ID: (q1, x]<xxx>x!, [!Z)
+ID: (q1, ]<xxx>x!, [!Z)
+ID: (q1, <xxx>x!, !Z)
+ID: (q1, xxx>x!, <!Z)
+ID: (q1, xx>x!, <!Z)
+ID: (q1, x>x!, <!Z)
+ID: (q1, >x!, <!Z)
+ID: (q1, x!, !Z)
+ID: (q1, !, !Z)
+ID: (q2, E, Z)
 q2 is a final state.
 !xx[x({xx})[xxx]x]<xxx>x! is valid and has balanced brackets.
 
-processing ![<]>!
-id: (q0, ![<]>!, z)
-id: (q1, [<]>!, !z)
-id: (q1, <]>!, [!z)
-id: (q1, ]>!, <[!z)
-invalid string. failed at position 4.
-remaining unprocessed input string: ]>!
+Processing ![<]>!
+ID: (q0, ![<]>!, Z)
+ID: (q1, [<]>!, !Z)
+ID: (q1, <]>!, [!Z)
+ID: (q1, ]>!, <[!Z)
+Invalid string. Failed at position 4.
+Remaining unprocessed input string: ]>!
 
-processing ![]
-id: (q0, ![], z)
-id: (q1, [], !z)
-id: (q1, ], [!z)
-id: (q1, e, !z)
-invalid string. q1 is not a final state.
+Processing ![]
+ID: (q0, ![], Z)
+ID: (q1, [], !Z)
+ID: (q1, ], [!Z)
+ID: (q1, E, !Z)
+Invalid string. q1 is not a final state.
 
-processing !<a{[()]}a>!
-id: (q0, !<a{[()]}a>!, z)
-id: (q1, <a{[()]}a>!, !z)
-id: (q1, a{[()]}a>!, <!z)
-invalid string. failed at position 3.
-remaining unprocessed input string: a{[()]}a>!
+Processing !<a{[()]}a>!
+ID: (q0, !<a{[()]}a>!, Z)
+ID: (q1, <a{[()]}a>!, !Z)
+ID: (q1, a{[()]}a>!, <!Z)
+Invalid string. Failed at position 3.
+Remaining unprocessed input string: a{[()]}a>!
 
-processing ([]){}
-id: (q0, ([]){}, z)
-invalid string. failed at position 1.
-remaining unprocessed input string: ([]){}
+Processing ([]){}
+ID: (q0, ([]){}, Z)
+Invalid string. Failed at position 1.
+Remaining unprocessed input string: ([]){}
 
-processing !<x{[()]}x>!
-id: (q0, !<x{[()]}x>!, z)
-id: (q1, <x{[()]}x>!, !z)
-id: (q1, x{[()]}x>!, <!z)
-id: (q1, {[()]}x>!, <!z)
-id: (q1, [()]}x>!, {<!z)
-id: (q1, ()]}x>!, [{<!z)
-id: (q1, )]}x>!, ([{<!z)
-id: (q1, ]}x>!, [{<!z)
-id: (q1, }x>!, {<!z)
-id: (q1, x>!, <!z)
-id: (q1, >!, <!z)
-id: (q1, !, !z)
-id: (q2, e, z)
+Processing !<x{[()]}x>!
+ID: (q0, !<x{[()]}x>!, Z)
+ID: (q1, <x{[()]}x>!, !Z)
+ID: (q1, x{[()]}x>!, <!Z)
+ID: (q1, {[()]}x>!, <!Z)
+ID: (q1, [()]}x>!, {<!Z)
+ID: (q1, ()]}x>!, [{<!Z)
+ID: (q1, )]}x>!, ([{<!Z)
+ID: (q1, ]}x>!, [{<!Z)
+ID: (q1, }x>!, {<!Z)
+ID: (q1, x>!, <!Z)
+ID: (q1, >!, <!Z)
+ID: (q1, !, !Z)
+ID: (q2, E, Z)
 q2 is a final state.
 !<x{[()]}x>! is valid and has balanced brackets.
 
-!xx[x({xx})[xxx]x]<xxx>x! - resulting number of x's: 9
-![<]>! - invalid string.
-![] - invalid string.
-!<a{[()]}a>! - invalid string.
-([]){} - invalid string.
-!<x{[()]}x>! - resulting number of x's: 6
+!xx[x({xx})[xxx]x]<xxx>x! - Resulting number of x's: 9
+![<]>! - Invalid string.
+![] - Invalid string.
+!<a{[()]}a>! - Invalid string.
+([]){} - Invalid string.
+!<x{[()]}x>! - Resulting number of x's: 6

@@ -1,11 +1,11 @@
 def is_balanced(input, is_write_to_output):
     output = open("output.txt", "a")
 
-    states = ("q0", "q1", "q2")
-    alphabet = "!<>()[]{}x"
+    finals = "q2"
     transitions = {
+        # (current state, current symbol, top of stack)
         # !
-        ("q0", "!", "z"): ["q1", "z", "!"],
+        ("q0", "!", "Z"): ["q1", "Z", "!"],
         ("q1", "!", "!"): ["q2"],
         # <
         ("q1", "<", "!"): ["q1", "!", "<"],
@@ -63,25 +63,24 @@ def is_balanced(input, is_write_to_output):
         ("q1", "x", "{"): ["q1", "{"],
         ("q1", "x", "}"): ["q1", "}"],
     }
-    finals = "q2"
 
     if is_write_to_output:
-        output.write(f"processing {input}\n")
+        output.write(f"Processing {input}\n")
 
-    input += "e"
+    input += "E"
 
-    stack = ["z"]
+    stack = ["Z"]
     curr_state = "q0"
     i = 0
     while True:
         if is_write_to_output:
             if i == len(input) - 1:
                 output.write(
-                    f"id: ({curr_state}, {input[i:]}, {''.join(list(reversed(stack)))})\n"
+                    f"ID: ({curr_state}, {input[i:]}, {''.join(list(reversed(stack)))})\n"
                 )
             else:
                 output.write(
-                    f"id: ({curr_state}, {input[i:-1]}, {''.join(list(reversed(stack)))})\n"
+                    f"ID: ({curr_state}, {input[i:-1]}, {''.join(list(reversed(stack)))})\n"
                 )
         symbol = input[i]
         top = stack.pop()
@@ -98,14 +97,14 @@ def is_balanced(input, is_write_to_output):
             stack.extend(transition[1:])
         else:
             if is_write_to_output:
-                if symbol == "e":
+                if symbol == "E":
                     output.write(
-                        f"invalid string. {curr_state} is not a final state.\n\n"
+                        f"Invalid string. {curr_state} is not a final state.\n\n"
                     )
                 else:
-                    output.write(f"invalid string. failed at position {i+1}.\n")
+                    output.write(f"Invalid string. Failed at position {i+1}.\n")
                     output.write(
-                        f"remaining unprocessed input string: {input[i:-1]}\n\n"
+                        f"Remaining unprocessed input string: {input[i:-1]}\n\n"
                     )
             return False
 
@@ -160,10 +159,10 @@ def main2():
     for i in input:
         if is_balanced(i.strip(), False):
             output.write(
-                f"{i.strip()} - resulting number of x's: {evaluate(i.strip())}\n"
+                f"{i.strip()} - Resulting number of x's: {evaluate(i.strip())}\n"
             )
         else:
-            output.write(f"{i.strip()} - invalid string.\n")
+            output.write(f"{i.strip()} - Invalid string.\n")
 
 
 if __name__ == "__main__":
