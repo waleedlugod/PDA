@@ -84,7 +84,7 @@ def is_balanced(input):
         top = stack.pop()
 
         key = (curr_state, symbol, top)
-        if curr_state == finals:
+        if curr_state == finals and symbol == "E":
             output.write("q2 is a final state.\n")
             output.write(f"{input[:-1]} is valid and has balanced brackets.\n\n")
             return True
